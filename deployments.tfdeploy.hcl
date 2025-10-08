@@ -9,9 +9,10 @@ locals {
     "source-stack" = "philbrook/azure-core-infra"
   }
 }
+
 deployment "dev" {
   inputs = {
-    locations          = ["East US"]
+    locations          = ["eastus"]
     environment        = "dev"
     default_tags       = local.default_tags
     az_tenant_id       = store.varset.azure_auth.stable.ARM_TENANT_ID
@@ -19,32 +20,19 @@ deployment "dev" {
     az_client_id       = store.varset.azure_auth.stable.ARM_CLIENT_ID
     az_client_secret   = store.varset.azure_auth.ARM_CLIENT_SECRET
   }
-  destroy = true
 }
 
-# deployment "dev" {
-#   inputs = {
-#     locations          = ["eastus"]
-#     environment        = "dev"
-#     default_tags       = local.default_tags
-#     az_tenant_id       = store.varset.azure_auth.stable.ARM_TENANT_ID
-#     az_subscription_id = store.varset.azure_auth.stable.ARM_SUBSCRIPTION_ID
-#     az_client_id       = store.varset.azure_auth.stable.ARM_CLIENT_ID
-#     az_client_secret   = store.varset.azure_auth.ARM_CLIENT_SECRET
-#   }
-# }
-
-# deployment "prod" {
-#   inputs = {
-#     locations          = ["eastus", "centralus"]
-#     environment        = "prod"
-#     default_tags       = local.default_tags
-#     az_tenant_id       = store.varset.azure_auth.stable.ARM_TENANT_ID
-#     az_subscription_id = store.varset.azure_auth.stable.ARM_SUBSCRIPTION_ID
-#     az_client_id       = store.varset.azure_auth.stable.ARM_CLIENT_ID
-#     az_client_secret   = store.varset.azure_auth.ARM_CLIENT_SECRET
-#   }
-# }
+deployment "prod" {
+  inputs = {
+    locations          = ["eastus", "centralus"]
+    environment        = "prod"
+    default_tags       = local.default_tags
+    az_tenant_id       = store.varset.azure_auth.stable.ARM_TENANT_ID
+    az_subscription_id = store.varset.azure_auth.stable.ARM_SUBSCRIPTION_ID
+    az_client_id       = store.varset.azure_auth.stable.ARM_CLIENT_ID
+    az_client_secret   = store.varset.azure_auth.ARM_CLIENT_SECRET
+  }
+}
 
 # publish_output "dev_packer_public_dns" {
 #   value = deployment.dev.packer_public_dns
