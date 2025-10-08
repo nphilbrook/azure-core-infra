@@ -18,7 +18,7 @@ deployment "dev" {
     az_tenant_id       = store.varset.azure_auth.stable.ARM_TENANT_ID
     az_subscription_id = store.varset.azure_auth.stable.ARM_SUBSCRIPTION_ID
     az_client_id       = store.varset.azure_auth.stable.ARM_CLIENT_ID
-    az_client_secret   = store.varset.azure_auth.stable.ARM_CLIENT_SECRET
+    az_client_secret   = store.varset.azure_auth.ARM_CLIENT_SECRET
   }
 }
 

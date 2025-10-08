@@ -38,4 +38,5 @@ variable "az_client_secret" {
   type        = string
   description = "Azure Client Secret"
   sensitive   = true
+  ephemeral   = true
 }
