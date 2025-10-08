@@ -22,7 +22,9 @@ component "dns_tls" {
 
   inputs = {
     resource_group_name = component.rg[each.value].resource_group_name
+    location            = each.value
     default_tags        = var.default_tags
+    username            = var.username
   }
 
   providers = {

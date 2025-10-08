@@ -6,3 +6,11 @@ variable "default_tags" {
   description = "A map of default tags to apply to all Azure resources"
   type        = map(string)
 }
+
+variable "username" {
+  type = string
+}
+
+variable "location" {
+  type = string
+}

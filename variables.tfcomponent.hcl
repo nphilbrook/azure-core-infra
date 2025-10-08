@@ -40,3 +40,8 @@ variable "az_client_secret" {
   sensitive   = true
   ephemeral   = true
 }
+
+variable "username" {
+  type    = string
+  default = "nick.philbrook"
+}
