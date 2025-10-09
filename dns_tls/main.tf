@@ -20,3 +20,4 @@ resource "aws_route53_record" "ns" {
   ttl     = 300
   records = azurerm_dns_zone.zone.name_servers
 }
+

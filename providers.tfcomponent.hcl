@@ -7,6 +7,18 @@ required_providers {
     source  = "hashicorp/aws"
     version = "~>6.0"
   }
+  # acme = {
+  #   source  = "vancluever/acme"
+  #   version = "~>2.23"
+  # }
+  # local = {
+  #   source  = "hashicorp/local"
+  #   version = "~>2.5"
+  # }
+  # tls = {
+  #   source  = "hashicorp/tls"
+  #   version = "~>4.1"
+  # }
 }
 
 provider "azurerm" "this" {
@@ -41,3 +53,18 @@ provider "aws" "this" {
     }
   }
 }
+
+# provider "acme" "this" {
+#   config {
+#     server_url = "https://acme-v02.api.letsencrypt.org/directory"
+#   }
+# }
+
+# provider "local" "this" {
+#   config {}
+# }
+
+# provider "tls" "this" {
+#   config {}
+# }
+

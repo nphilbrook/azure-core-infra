@@ -54,10 +54,10 @@ deployment "prod" {
   }
 }
 
-# publish_output "dev_packer_public_dns" {
-#   value = deployment.dev.packer_public_dns
-# }
+publish_output "dev_environment_info" {
+  value = deployment.dev.environment_info
+}
 
-# publish_output "dev_packer_instance_profile_role_arn" {
-#   value = deployment.dev.packer_instance_profile_role_arn
-# }
+publish_output "prod_environment_info" {
+  value = deployment.prod.environment_info
+}

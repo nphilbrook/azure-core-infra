@@ -30,7 +30,9 @@ component "dns_tls" {
 
   providers = {
     azurerm = provider.azurerm.this
-    aws      = provider.aws.this
+    aws     = provider.aws.this
+    # acme    = provider.acme.this
+    # local   = provider.local.this
   }
 }
 
@@ -52,42 +54,6 @@ removed {
 
   providers = {
     azurerm = provider.azurerm.this
-    aws      = provider.aws.this
+    aws     = provider.aws.this
   }
 }
-
-# component "sgs" {
-#   source = "./sgs"
-
-#   for_each = var.regions
-
-#   inputs = {
-#     packer_channel  = var.packer_channel
-#     region          = each.value
-#     source_ip_cidrs = var.source_ip_cidrs
-#     project_name    = var.project_name
-#   }
-
-#   providers = {
-#     aws = provider.aws.configurations[each.value]
-#   }
-# }
-
-# component "ec2" {
-#   for_each = local.dev_prod_channels
-#   source   = "./ec2"
-
-#   inputs = {
-#     packer_channel               = var.packer_channel
-#     region                       = "us-east-1"
-#     packer_instance_profile_name = component.iam["_"].packer_instance_profile_name
-#     sg_id                        = component.sgs["us-east-1"].allow_ssh_egress_sg_id
-#     num_instances                = var.num_packer_instances
-#     project_name                 = var.project_name
-#   }
-
-#   providers = {
-#     aws = provider.aws.configurations["us-east-1"]
-#     hcp = provider.hcp.this
-#   }
-# }

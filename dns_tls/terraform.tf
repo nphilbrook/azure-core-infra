@@ -9,5 +9,17 @@ terraform {
       source  = "hashicorp/aws"
       version = "~>6.0"
     }
+    # acme = {
+    #   source  = "vancluever/acme"
+    #   version = "~>2.23"
+    # }
+    # local = {
+    #   source  = "hashicorp/local"
+    #   version = "~>2.5"
+    # }
+    # tls = {
+    #   source  = "hashicorp/tls"
+    #   version = "~>4.1"
+    # }
   }
 }
