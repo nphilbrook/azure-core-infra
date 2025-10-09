@@ -5,7 +5,7 @@ required_providers {
   }
 }
 
-provider "azurerm" "configurations" {
+provider "azurerm" "this" {
   config {
     use_cli                         = false
     resource_provider_registrations = "none"
@@ -22,4 +22,3 @@ provider "azurerm" "configurations" {
     }
   }
 }
-

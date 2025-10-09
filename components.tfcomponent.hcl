@@ -10,7 +10,7 @@ component "rg" {
   }
 
   providers = {
-    azurerm = provider.azurerm.configurations
+    azurerm = provider.azurerm.this
   }
 }
 
@@ -28,7 +28,7 @@ component "dns_tls" {
   }
 
   providers = {
-    azurerm = provider.azurerm.configurations
+    azurerm = provider.azurerm.this
   }
 }
 
@@ -38,7 +38,7 @@ removed {
   from     = component.rg[each.value]
 
   providers = {
-    azurerm = provider.azurerm.configurations
+    azurerm = provider.azurerm.this
   }
 }
 
@@ -49,7 +49,7 @@ removed {
   from     = component.dns_tls[each.value]
 
   providers = {
-    azurerm = provider.azurerm.configurations
+    azurerm = provider.azurerm.this
   }
 }
 
