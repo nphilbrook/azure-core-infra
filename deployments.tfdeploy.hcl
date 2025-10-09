@@ -13,6 +13,7 @@ locals {
 deployment "dev" {
   inputs = {
     locations          = ["eastus"]
+    removed_locations  = []
     environment        = "dev"
     default_tags       = local.default_tags
     az_tenant_id       = store.varset.azure_auth.stable.ARM_TENANT_ID
@@ -24,7 +25,8 @@ deployment "dev" {
 
 deployment "prod" {
   inputs = {
-    locations          = ["eastus", "centralus"]
+    locations          = ["eastus"]
+    removed_locations  = ["centralus"]
     environment        = "prod"
     default_tags       = local.default_tags
     az_tenant_id       = store.varset.azure_auth.stable.ARM_TENANT_ID

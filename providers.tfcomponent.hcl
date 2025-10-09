@@ -15,7 +15,11 @@ provider "azurerm" "configurations" {
     client_id       = var.az_client_id
     client_secret   = var.az_client_secret
 
-    features {}
+    features {
+      resource_group {
+        prevent_deletion_if_contains_resources = false
+      }
+    }
   }
 }
 

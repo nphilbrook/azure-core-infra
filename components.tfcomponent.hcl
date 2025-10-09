@@ -32,6 +32,27 @@ component "dns_tls" {
   }
 }
 
+removed {
+  for_each = var.removed_locations
+  source   = "./rg"
+  from     = component.rg[each.value]
+
+  providers = {
+    azurerm = provider.azurerm.configurations
+  }
+}
+
+
+removed {
+  for_each = var.removed_locations
+  source   = "./dns_tls"
+  from     = component.dns_tls[each.value]
+
+  providers = {
+    azurerm = provider.azurerm.configurations
+  }
+}
+
 # component "sgs" {
 #   source = "./sgs"
 
