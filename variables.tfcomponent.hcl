@@ -47,7 +47,7 @@ variable "az_client_secret" {
 
 variable "username" {
   type    = string
-  default = "nick.philbrook"
+  default = "nick-philbrook"
 }
 
 variable "identity_token_aws" {
