@@ -1,6 +1,13 @@
-resource "azurerm_dns_zone" "zone" {
-  name                = "${var.location}.${var.environment}.azure.${var.username}.sbx.hashidemos.io"
-  resource_group_name = var.resource_group_name
+# removed {
+#     from = azurerm_dns_zone.zone
+#     lifecycle {
+#       destroy = false
+#     }
+# }
 
-  tags = var.default_tags
-}
+# resource "azurerm_dns_zone" "zone" {
+#   name                = "${var.location}.${var.environment}.azure.${var.username}.sbx.hashidemos.io"
+#   resource_group_name = var.resource_group_name
+
+#   tags = var.default_tags
+# }
