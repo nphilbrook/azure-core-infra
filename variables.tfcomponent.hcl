@@ -49,3 +49,13 @@ variable "username" {
   type    = string
   default = "nick.philbrook"
 }
+
+variable "identity_token_aws" {
+  type      = string
+  ephemeral = true
+}
+
+variable "role_arn" {
+  type      = string
+  ephemeral = true
+}

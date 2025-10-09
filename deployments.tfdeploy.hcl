@@ -1,13 +1,22 @@
-store "varset" "azure_auth" {
-  name     = "Azure Credentials"
-  category = "env"
-}
-
 locals {
   default_tags = {
     "created-by"   = "terraform"
     "source-stack" = "philbrook/azure-core-infra"
   }
+}
+
+store "varset" "azure_auth" {
+  name     = "Azure Credentials"
+  category = "env"
+}
+
+store "varset" "aws_auth" {
+  name     = "aws-creds"
+  category = "env"
+}
+
+identity_token "aws" {
+  audience = ["aws.workload.identity"]
 }
 
 deployment "dev" {
@@ -20,6 +29,10 @@ deployment "dev" {
     az_subscription_id = store.varset.azure_auth.stable.ARM_SUBSCRIPTION_ID
     az_client_id       = store.varset.azure_auth.stable.ARM_CLIENT_ID
     az_client_secret   = store.varset.azure_auth.ARM_CLIENT_SECRET
+
+    # AWS for NS records
+    identity_token_aws = identity_token.aws.jwt
+    role_arn           = store.varset.aws_auth.TFC_AWS_RUN_ROLE_ARN
   }
 }
 
@@ -33,6 +46,11 @@ deployment "prod" {
     az_subscription_id = store.varset.azure_auth.stable.ARM_SUBSCRIPTION_ID
     az_client_id       = store.varset.azure_auth.stable.ARM_CLIENT_ID
     az_client_secret   = store.varset.azure_auth.ARM_CLIENT_SECRET
+
+
+    # AWS for NS records
+    identity_token_aws = identity_token.aws.jwt
+    role_arn           = store.varset.aws_auth.TFC_AWS_RUN_ROLE_ARN
   }
 }
 

@@ -30,6 +30,7 @@ component "dns_tls" {
 
   providers = {
     azurerm = provider.azurerm.this
+    aws      = provider.aws.this
   }
 }
 
@@ -51,6 +52,7 @@ removed {
 
   providers = {
     azurerm = provider.azurerm.this
+    aws      = provider.aws.this
   }
 }
 
