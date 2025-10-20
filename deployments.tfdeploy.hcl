@@ -21,7 +21,7 @@ identity_token "aws" {
 
 deployment "dev" {
   inputs = {
-    locations          = ["eastus"]
+    locations          = ["eastus", "centralus"]
     removed_locations  = []
     environment        = "dev"
     default_tags       = local.default_tags
