@@ -34,6 +34,7 @@ deployment "dev" {
     identity_token_aws = identity_token.aws.jwt
     role_arn           = store.varset.aws_auth.TFC_AWS_RUN_ROLE_ARN
   }
+  destroy = true
 }
 
 deployment "prod" {
@@ -52,6 +53,7 @@ deployment "prod" {
     identity_token_aws = identity_token.aws.jwt
     role_arn           = store.varset.aws_auth.TFC_AWS_RUN_ROLE_ARN
   }
+  destroy = true
 }
 
 publish_output "dev_environment_info" {
